@@ -1,0 +1,85 @@
+﻿@model Ecommerce2.Models.KhachHang
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a class="breadcrumb-item" asp-area="Admin" asp-controller="AdminKhachHang" asp-action="Index">Quản lý hãng</a>
+            <span class="breadcrumb-item active">Chỉnh sửa thông tin khách hàng</span>
+        </nav>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="AdminKhachHang" asp-action="Edit" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MaKh" />
+            <div class="media align-items-center m-b-15">
+                <h4>Thông tin hãng</h4>
+            </div>
+            <div class="form-group">
+                <label asp-for="HoTen" class="control-label">Tên khách hàng</label>
+                <input asp-for="HoTen" class="form-control" />
+                <span asp-validation-for="HoTen" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DiaChi" class="control-label">Địa chỉ</label>
+                <textarea asp-for="DiaChi" class="form-control"></textarea>
+                <span asp-validation-for="DiaChi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DienThoai" class="control-label">Điện thoại</label>
+                <input asp-for="DienThoai" class="form-control" />
+                <span asp-validation-for="DienThoai" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label">Email</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NgaySinh" class="font-weight-semibold">Ngày sinh</label>
+                <div class="input-affix m-b-10">
+                    <i class="prefix-icon anticon anticon-calendar"></i>
+                    <input asp-for="NgaySinh" class="form-control datepicker-input" placeholder="Ngày sinh" />
+                </div>
+                <span asp-validation-for="NgaySinh" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="m-t-5">
+                    <div class="form-group d-flex align-items-center">
+                        <div class="switch m-r-10">
+                            <input type="checkbox" asp-for="GioiTinh">
+                            <label for="GioiTinh"></label>
+                        </div>
+                        <label>Giới tính</label>
+                    </div>
+                    <div class="form-group d-flex align-items-center">
+                        <div class="switch m-r-10">
+                            <input type="checkbox" asp-for="HieuLuc">
+                            <label for="HieuLuc"></label>
+                        </div>
+                        <label>Hiệu lực</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="font-weight-semibold" for="productBrand">Ảnh đại diện</label>
+                <input name="fThumb" type="file" class="form-control-file" asp-for="Hinh">
+                <span asp-validation-for="Hinh" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-success btn-tone m-r-5" asp-action="Index">Quay lại danh sách</a>
+</div>

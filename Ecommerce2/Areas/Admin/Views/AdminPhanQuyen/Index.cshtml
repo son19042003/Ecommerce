@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Ecommerce2.Models.PhanQuyen>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <span class="breadcrumb-item active">Quản lý quyền truy cập</span>
+        </nav>
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Mã phân quyền</th>
+                <th>Tên phân quyền</th>
+                <th>Thao tác khác</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.MaPq</td>
+                        <td>@item.TenPq</td>
+                        <td>
+                            <a class="anticon anticon-bars" asp-area="Admin" asp-controller="AdminPhanQuyen" asp-action="Details" asp-route-id="@item.MaPq"></a>
+                            <a style="margin: 0 5px" class="anticon anticon-edit" asp-area="Admin" asp-controller="AdminPhanQuyen" asp-action="Edit" asp-route-id="@item.MaPq"></a>
+                            <a class="anticon anticon-delete" asp-area="Admin" asp-controller="AdminPhanQuyen" asp-action="Delete" asp-route-id="@item.MaPq"></a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

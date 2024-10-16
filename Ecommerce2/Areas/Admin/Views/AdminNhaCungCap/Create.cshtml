@@ -1,0 +1,73 @@
+﻿@model Ecommerce2.Models.NhaCungCap
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a class="breadcrumb-item" asp-area="Admin" asp-controller="AdminNhaCungCap" asp-action="Index">Quản lý nhà cung cấp</a>
+            <span class="breadcrumb-item active">Thêm mới nhà cung cấp</span>
+        </nav>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-controller="AdminNhaCungCap" asp-action="Create" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="media align-items-center m-b-15">
+                <h4>Thông tin nhà cung cấp</h4>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaNcc" class="control-label">Mã nhà cung cấp</label>
+                <input asp-for="MaNcc" class="form-control" />
+                <span asp-validation-for="MaNcc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenCongTy" class="control-label">Tên công ty</label>
+                <textarea asp-for="TenCongTy" class="form-control"></textarea>
+                <span asp-validation-for="TenCongTy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NguoiLienLac" class="control-label">Người liên lạc</label>
+                <textarea asp-for="NguoiLienLac" class="form-control"></textarea>
+                <span asp-validation-for="NguoiLienLac" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label">Email</label>
+                <textarea asp-for="Email" class="form-control"></textarea>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DienThoai" class="control-label">Điện thoại</label>
+                <textarea asp-for="DienThoai" class="form-control"></textarea>
+                <span asp-validation-for="DienThoai" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DiaChi" class="control-label">Quốc gia</label>
+                <textarea asp-for="DiaChi" class="form-control"></textarea>
+                <span asp-validation-for="DiaChi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MoTa" class="control-label">Mô tả</label>
+                <input asp-for="MoTa" class="form-control" />
+                <span asp-validation-for="MoTa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="font-weight-semibold" for="productBrand">Logo</label>
+                <input name="fThumb" type="file" class="form-control-file" asp-for="Logo">
+                <span asp-validation-for="Logo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-success btn-tone m-r-5" asp-action="Index">Quay lại danh sách</a>
+</div>

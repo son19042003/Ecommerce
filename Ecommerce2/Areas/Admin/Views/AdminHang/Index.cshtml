@@ -1,0 +1,74 @@
+﻿@using X.PagedList.Mvc.Core
+@model X.PagedList.IPagedList<Ecommerce2.Models.Hang>
+
+@{
+    int CurrentPage = ViewBag.CurrentPage;
+    ViewData["Title"] = "Index" + CurrentPage;
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <span class="breadcrumb-item active">Danh mục hãng : page @CurrentPage</span>
+        </nav>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <div class="row m-b-30">
+            <div class="col-lg-8">
+            </div>
+            <div class="col-lg-4 text-right">
+                <a class="btn btn-primary" asp-controller="AdminHang" asp-action="Create">
+                    <i class="anticon anticon-plus-circle m-r-5"></i>
+                    <span>Thêm danh mục hãng</span>
+                </a>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover e-commerce-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tên hãng</th>
+                        <th>Các thao tác khác</th>
+                    </tr>
+                </thead>
+                <tbody id="records_table">
+                    @if (Model != null)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.MaHang</td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <img class="img-fluid rounded" src="~/Images/Hang/@item.Hinh" style="max-width: 60px" alt="">
+                                        <h6 class="m-b-0 m-l-10">@item.TenHang</h6>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a class="anticon anticon-bars" asp-area="Admin" asp-controller="AdminHang" asp-action="Details" asp-route-id="@item.MaHang"></a>
+                                    <a style="margin: 0 5px" class="anticon anticon-edit" asp-area="Admin" asp-controller="AdminHang" asp-action="Edit" asp-route-id="@item.MaHang"></a>
+                                    <a class="anticon anticon-delete" asp-area="Admin" asp-controller="AdminHang" asp-action="Delete" asp-route-id="@item.MaHang"></a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+            <div aria-label="Page navigation example">
+                <ul class="pagination">
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }),
+                        new PagedListRenderOptions()
+                        {
+                            LiElementClasses = new string[] { "page-item" },
+                            PageClasses = new string[] { "page-link" }
+                        })
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

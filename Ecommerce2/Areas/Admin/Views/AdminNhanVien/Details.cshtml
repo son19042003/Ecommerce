@@ -1,0 +1,52 @@
+﻿@model Ecommerce2.Models.NhanVien
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a class="breadcrumb-item" asp-area="Admin" asp-controller="AdminNhanVien" asp-action="Index">Quản lý nhân viên</a>
+            <span class="breadcrumb-item active">Chi tiết nhân viên</span>
+        </nav>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Thông tin nhân viên</h4>
+        <div class="table-responsive">
+            <table class="product-info-table m-t-20">
+                <tbody>
+                    <tr>
+                        <td>Mã nhân viên:</td>
+                        <td class="text-dark font-weight-semibold">@Model.MaNv</td>
+                    </tr>
+                    <tr>
+                        <td>Tên nhân viên:</td>
+                        <td>@Model.HoTen</td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td>@Model.Email</td>
+                    </tr>
+                    <tr>
+                        <td>Mật khẩu:</td>
+                        <td>@Model.MatKhau</td>
+                    </tr>
+                    <tr>
+                        <td>Phân quyền:</td>
+                        <td>@Model.MaPq</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-success btn-tone m-r-5" asp-action="Edit" asp-route-id="@Model?.MaNv">Sửa</a> |
+    <a class="btn btn-success btn-tone m-r-5" asp-action="Index">Quay lại danh sách</a>
+</div>

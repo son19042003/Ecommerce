@@ -1,0 +1,102 @@
+﻿@model Ecommerce2.Models.KhachHang
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a class="breadcrumb-item" asp-area="Admin" asp-controller="AdminKhachHang" asp-action="Index">Danh sách khách hàng</a>
+            <span class="breadcrumb-item active">Chi tiết khách hàng</span>
+        </nav>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Thông tin khách hàng: @Model.HoTen</h4>
+        <div class="table-responsive">
+            <table class="product-info-table m-t-20">
+                <tbody>
+                    <tr>
+                        <td>Mã khách hàng:</td>
+                        <td class="text-dark font-weight-semibold">@Model.MaKh</td>
+                    </tr>
+                    <tr>
+                        <td>Tên khách hàng:</td>
+                        <td>@Model.HoTen</td>
+                    </tr>
+                    <tr>
+                        <td>Mật khẩu:</td>
+                        <td>@Model.MatKhau</td>
+                    </tr>
+                    <tr>
+                        <td>Giới tính:</td>
+                        <td>
+                            @if(Model.GioiTinh)
+                            {
+                                <p>Nam</p>
+                            }
+                            else
+                            {
+                                <p>Nữ</p>
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ngày sinh:</td>
+                        <td>@Model.NgaySinh</td>
+                    </tr>
+                    <tr>
+                        <td>Điện thoại:</td>
+                        <td>@Model.DienThoai</td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td>@Model.Email</td>
+                    </tr>
+                    <tr>
+                        <td>Hiệu lực:</td>
+                        <td>
+                            @if (Model.HieuLuc)
+                            {
+                                <div class="d-flex align-items-center">
+                                    <div class="badge badge-success badge-dot m-r-10"></div>
+                                    <div>Còn hiệu lực</div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="d-flex align-items-center">
+                                    <div class="badge badge-danger badge-dot m-r-10"></div>
+                                    <div>Khóa</div>
+                                </div>
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Randomkey:</td>
+                        <td>@Model.RandomKey</td>
+                    </tr>
+                    <tr>
+                        <td>Địa chỉ:</td>
+                        <td>@Model.DiaChi</td>
+                    </tr>
+                    <tr>
+                        <td>Ảnh đại diện:</td>
+                        <td>
+                            <img width="100" height="100" src="~/Images/KhachHang/@Model.Hinh" alt="@Model.HoTen" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-success btn-tone m-r-5" asp-action="Edit" asp-route-id="@Model?.MaKh">Sửa</a> |
+    <a class="btn btn-success btn-tone m-r-5" asp-action="Index">Quay lại danh sách</a>
+</div>

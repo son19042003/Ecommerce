@@ -1,0 +1,59 @@
+﻿@model Ecommerce2.Models.ChiTietHd
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a class="breadcrumb-item" asp-area="Admin" asp-controller="AdminCTHoaDon" asp-action="Index">Danh sách hóa đơn</a>
+            <span class="breadcrumb-item active">Chi tiết hóa đơn</span>
+        </nav>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Thông tin chi tiết hóa đơn</h4>
+        <div class="table-responsive">
+            <table class="product-info-table m-t-20">
+                <tbody>
+                    <tr>
+                        <td>Mã chi tiết hóa đơn:</td>
+                        <td class="text-dark font-weight-semibold">@Model.MaCt</td>
+                    </tr>
+                    <tr>
+                        <td>Mã hóa đơn:</td>
+                        <td>@Model.MaHd</td>
+                    </tr>
+                    <tr>
+                        <td>Mã sản phẩm:</td>
+                        <td>@Model.MaSp</td>
+                    </tr>
+                    <tr>
+                        <td>Đơn giá:</td>
+                        <td>@Model.DonGia</td>
+                    </tr>
+                    <tr>
+                        <td>Số lượng:</td>
+                        <td>@Model.SoLuong</td>
+                    </tr>
+                    <tr>
+                        <td>Giảm giá:</td>
+                        <td>@Model.GiamGia</td>
+                    </tr>
+                    <tr>
+                        <td>Thành tiền:</td>
+                        <td>@Model.ThanhTien</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-success btn-tone m-r-5" asp-action="Index">Quay lại danh sách</a>
+</div>

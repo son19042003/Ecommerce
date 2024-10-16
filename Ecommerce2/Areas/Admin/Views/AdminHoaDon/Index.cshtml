@@ -1,0 +1,63 @@
+﻿@using X.PagedList.Mvc.Core
+@model X.PagedList.IPagedList<Ecommerce2.Models.HoaDon>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <span class="breadcrumb-item active">Danh sách hóa đơn</span>
+        </nav>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        
+        <div class="table-responsive">
+            <table class="table table-hover e-commerce-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tên khách hàng</th>
+                        <th>Ngày đặt</th>
+                        <th>Trạng thái</th>
+                        <th>Các thao tác khác</th>
+                    </tr>
+                </thead>
+                <tbody id="records_table">
+                    @if (Model != null)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.MaHd</td>
+                                <td>@item.HoTen</td>
+                                <td>@item.NgayDat</td>
+                                <td>@item.MaTrangThai</td>
+                                <td>
+                                    <a class="anticon anticon-bars" asp-area="Admin" asp-controller="AdminHoaDon" asp-action="Details" asp-route-id="@item.MaHd"></a>
+                                    <a style="margin: 0 5px" class="anticon anticon-edit" asp-area="Admin" asp-controller="AdminHoaDon" asp-action="Edit" asp-route-id="@item.MaHd"></a>
+                                    <a class="anticon anticon-delete" asp-area="Admin" asp-controller="AdminHoaDon" asp-action="Delete" asp-route-id="@item.MaHd"></a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+            <div aria-label="Page navigation example">
+                <ul class="pagination">
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }),
+                             new PagedListRenderOptions()
+                    {
+                        LiElementClasses = new string[] { "page-item" },
+                        PageClasses = new string[] { "page-link" }
+                    })
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

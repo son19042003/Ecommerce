@@ -1,0 +1,118 @@
+﻿@model Ecommerce2.Models.PhanQuyen
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a class="breadcrumb-item" asp-area="Admin" asp-controller="AdminPhanQuyen" asp-action="Index">Quản lý quyền truy cập</a>
+            <span class="breadcrumb-item active">Chi tiết quyền truy cập</span>
+        </nav>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Thông tin quyền truy cập</h4>
+        <div class="table-responsive">
+            <table class="product-info-table m-t-20">
+                <tbody>
+                    <tr>
+                        <td>Mã phân quyền:</td>
+                        <td class="text-dark font-weight-semibold">@Model.MaPq</td>
+                    </tr>
+                    <tr>
+                        <td>Tên phân quyền:</td>
+                        <td>@Model.TenPq</td>
+                    </tr>
+                    <tr>
+                        <td>Thêm:</td>
+                        <td>
+                            @if (@Model.Them)
+                            {
+                                <div class="d-flex align-items-center">
+                                    <div class="badge badge-success badge-dot m-r-10"></div>
+                                    <div>Được phép</div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="d-flex align-items-center">
+                                    <div class="badge badge-danger badge-dot m-r-10"></div>
+                                    <div>Không được phép</div>
+                                </div>
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Sửa:</td>
+                        <td>
+                            @if (@Model.Sua)
+                            {
+                                <div class="d-flex align-items-center">
+                                    <div class="badge badge-success badge-dot m-r-10"></div>
+                                    <div>Được phép</div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="d-flex align-items-center">
+                                    <div class="badge badge-danger badge-dot m-r-10"></div>
+                                    <div>Không được phép</div>
+                                </div>
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Xóa:</td>
+                        <td>
+                            @if (@Model.Xoa)
+                            {
+                                <div class="d-flex align-items-center">
+                                    <div class="badge badge-success badge-dot m-r-10"></div>
+                                    <div>Được phép</div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="d-flex align-items-center">
+                                    <div class="badge badge-danger badge-dot m-r-10"></div>
+                                    <div>Không được phép</div>
+                                </div>
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Xem:</td>
+                        <td>
+                            @if (@Model.Xem)
+                            {
+                                <div class="d-flex align-items-center">
+                                    <div class="badge badge-success badge-dot m-r-10"></div>
+                                    <div>Được phép</div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="d-flex align-items-center">
+                                    <div class="badge badge-danger badge-dot m-r-10"></div>
+                                    <div>Không được phép</div>
+                                </div>
+                            }
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-success btn-tone m-r-5" asp-action="Edit" asp-route-id="@Model?.MaPq">Sửa</a> |
+    <a class="btn btn-success btn-tone m-r-5" asp-action="Index">Quay lại danh sách</a>
+</div>

@@ -1,0 +1,84 @@
+﻿@model Ecommerce2.Models.HoaDon
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a class="breadcrumb-item" asp-area="Admin" asp-controller="AdminHoaDon" asp-action="Index">Danh sách hóa đơn</a>
+            <span class="breadcrumb-item active">Chi tiết hóa đơn</span>
+        </nav>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Thông tin hóa đơn</h4>
+        <div class="table-responsive">
+            <table class="product-info-table m-t-20">
+                <tbody>
+                    <tr>
+                        <td>Mã hóa đơn:</td>
+                        <td class="text-dark font-weight-semibold">@Model.MaHd</td>
+                    </tr>
+                    <tr>
+                        <td>Mã khách hàng:</td>
+                        <td>@Model.MaKh</td>
+                    </tr>
+                    <tr>
+                        <td>Tên khách hàng:</td>
+                        <td>@Model.HoTen</td>
+                    </tr>
+                    <tr>
+                        <td>Ngày đặt:</td>
+                        <td>@Model.NgayDat</td>
+                    </tr>
+                    <tr>
+                        <td>Ngày giao:</td>
+                        <td>@Model.NgayGiao</td>
+                    </tr>
+                    <tr>
+                        <td>Địa chỉ:</td>
+                        <td>@Model.DiaChi</td>
+                    </tr>
+                    <tr>
+                        <td>Điện thoại:</td>
+                        <td>@Model.DienThoai</td>
+                    </tr>
+                    <tr>
+                        <td>Cách thanh toán:</td>
+                        <td>@Model.CachThanhToan</td>
+                    </tr>
+                    <tr>
+                        <td>Cách vận chuyển:</td>
+                        <td>@Model.CachVanChuyen</td>
+                    </tr>
+                    <tr>
+                        <td>Phí vận chuyển:</td>
+                        <td>@Model.PhiVanChuyen</td>
+                    </tr>
+                    <tr>
+                        <td>Trạng thái:</td>
+                        <td>@Model.MaTrangThai</td>
+                    </tr>
+                    <tr>
+                        <td>Nhân viên:</td>
+                        <td>@Model.MaNv</td>
+                    </tr>
+                    <tr>
+                        <td>Ghi chú:</td>
+                        <td>@Model.GhiChu</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-success btn-tone m-r-5" asp-action="Edit" asp-route-id="@Model?.MaHd">Sửa</a> |
+    <a class="btn btn-success btn-tone m-r-5" asp-action="Index">Quay lại danh sách</a>
+</div>

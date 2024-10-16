@@ -1,0 +1,69 @@
+﻿@model Ecommerce2.Models.PhanQuyen
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a class="breadcrumb-item" asp-area="Admin" asp-controller="AdminPhanQuyen" asp-action="Index">Quản lý quyền truy cập</a>
+            <span class="breadcrumb-item active">Chỉnh sửa quyền truy cập</span>
+        </nav>
+    </div>
+</div>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" asp-route-id="@Model.MaPq">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MaPq" />
+            <div class="form-group">
+                <label asp-for="TenPq" class="control-label">Tên phân quyền</label>
+                <input asp-for="TenPq" class="form-control" />
+                <span asp-validation-for="TenPq" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="m-t-5">
+                    <div class="form-group d-flex align-items-center">
+                        <div class="switch m-r-10">
+                            <input type="checkbox" asp-for="Them">
+                            <label for="Them"></label>
+                        </div>
+                        <label>Thêm</label>
+                    </div>
+                    <div class="form-group d-flex align-items-center">
+                        <div class="switch m-r-10">
+                            <input type="checkbox" asp-for="Sua">
+                            <label for="Sua"></label>
+                        </div>
+                        <label>Sửa</label>
+                    </div>
+                    <div class="form-group d-flex align-items-center">
+                        <div class="switch m-r-10">
+                            <input type="checkbox" asp-for="Xoa">
+                            <label for="Xoa"></label>
+                        </div>
+                        <label>Xóa</label>
+                    </div>
+                    <div class="form-group d-flex align-items-center">
+                        <div class="switch m-r-10">
+                            <input type="checkbox" asp-for="Xem">
+                            <label for="Xem"></label>
+                        </div>
+                        <label>Xem</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Lưu thay đổi" class="btn btn-success m-r-5" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-success btn-tone m-r-5" asp-action="Index">Quay về danh sách</a>
+</div>

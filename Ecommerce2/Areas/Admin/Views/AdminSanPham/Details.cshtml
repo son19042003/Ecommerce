@@ -1,0 +1,86 @@
+﻿@model Ecommerce2.Models.SanPham
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a class="breadcrumb-item" asp-area="Admin" asp-controller="AdminSanPham" asp-action="Index">Danh sách sản phẩm</a>
+            <span class="breadcrumb-item active">Chi tiết sản phẩm</span>
+        </nav>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Thông tin sản phẩm: @Model.TenSp</h4>
+        <div class="table-responsive">
+            <table class="product-info-table m-t-20">
+                <tbody>
+                    <tr>
+                        <td>ID:</td>
+                        <td class="text-dark font-weight-semibold">@Model.MaSp</td>
+                    </tr>
+                    <tr>
+                        <td>Tên sản phẩm:</td>
+                        <td>@Model.TenSp</td>
+                    </tr>
+                    <tr>
+                        <td>Mô tả ngắn:</td>
+                        <td>@Model.MoTaDonVi</td>
+                    </tr>
+                    <tr>
+                        <td>Giá bán:</td>
+                        <td>@Model.GiaBan</td>
+                    </tr>
+                    <tr>
+                        <td>Giảm giá:</td>
+                        <td>@Model.GiamGia</td>
+                    </tr>
+                    <tr>
+                        <td>Số lượng:</td>
+                        <td>@Model.SoLuong</td>
+                    </tr>
+                    <tr>
+                        <td>Hãng:</td>
+                        <td>@Model.MaHangNavigation.TenHang</td>
+                    </tr>
+                    <tr>
+                        <td>Nhà cung cấp:</td>
+                        @* <td>@Model.MaNccNavigation.TenCongTy</td> *@
+                    </tr>
+                    <tr>
+                        <td>Ngày sản xuất:</td>
+                        <td>@Model.NgaySx</td>
+                    </tr>
+                    <tr>
+                        <td>Bảo hành:</td>
+                        <td>@Model.BaoHanh tháng</td>
+                    </tr>
+                    <tr>
+                        <td>Mô tả:</td>
+                        <td>@Model.MoTa</td>
+                    </tr>
+                    <tr>
+                        <td>Tên Alias:</td>
+                        <td>@Model.TenAlias</td>
+                    </tr>
+                    <tr>
+                        <td>Ảnh đại diện:</td>
+                        <td>
+                            <img width="100" height="100" src="~/Images/SanPham/@Model.Hinh" alt="@Model.TenSp" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-success btn-tone m-r-5" asp-action="Edit" asp-route-id="@Model?.MaSp">Sửa</a> |
+    <a class="btn btn-success btn-tone m-r-5" asp-action="Index">Quay lại danh sách</a>
+</div>

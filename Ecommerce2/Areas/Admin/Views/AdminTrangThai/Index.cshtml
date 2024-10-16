@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Ecommerce2.Models.TrangThai>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <span class="breadcrumb-item active">Quản lý trạng thái</span>
+        </nav>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <div class="row m-b-30">
+            <div class="col-lg-8">
+            </div>
+            <div class="col-lg-4 text-right">
+                <a class="btn btn-primary" asp-controller="AdminTrangThai" asp-action="Create">
+                    <i class="anticon anticon-plus-circle m-r-5"></i>
+                    <span>Thêm trạng thái</span>
+                </a>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Mã trạng thái</th>
+                        <th>Tên trạng thái</th>
+                        <th>Thao tác khác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.MaTrangThai</td>
+                                <td>@item.TenTrangThai</td>
+                                <td>
+                                    <a class="anticon anticon-bars" asp-area="Admin" asp-controller="AdminTrangThai" asp-action="Details" asp-route-id="@item.MaTrangThai"></a>
+                                    <a style="margin: 0 5px" class="anticon anticon-edit" asp-area="Admin" asp-controller="AdminTrangThai" asp-action="Edit" asp-route-id="@item.MaTrangThai"></a>
+                                    <a class="anticon anticon-delete" asp-area="Admin" asp-controller="AdminTrangThai" asp-action="Delete" asp-route-id="@item.MaTrangThai"></a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

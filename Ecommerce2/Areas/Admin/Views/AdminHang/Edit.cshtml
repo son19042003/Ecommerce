@@ -1,0 +1,54 @@
+﻿@model Ecommerce2.Models.Hang
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a class="breadcrumb-item" asp-area="Admin" asp-controller="AdminHang" asp-action="Index">Quản lý hãng</a>
+            <span class="breadcrumb-item active">Chỉnh sửa thông tin hãng</span>
+        </nav>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="AdminHang" asp-action="Edit" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MaHang" />
+            <div class="media align-items-center m-b-15">
+                <h4>Thông tin hãng</h4>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenHang" class="control-label">Tên hãng</label>
+                <input asp-for="TenHang" class="form-control" />
+                <span asp-validation-for="TenHang" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenHangAlias" class="control-label">Tên hãng alias</label>
+                <textarea asp-for="TenHangAlias" class="form-control"></textarea>
+                <span asp-validation-for="TenHangAlias" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MoTa" class="control-label">Mô tả</label>
+                <input asp-for="MoTa" class="form-control" />
+                <span asp-validation-for="MoTa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="font-weight-semibold" for="productBrand">Ảnh đại diện</label>
+                <input name="fThumb" type="file" class="form-control-file" asp-for="Hinh">
+                <span asp-validation-for="Hinh" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-success btn-tone m-r-5" asp-action="Index">Quay lại danh sách</a>
+</div>

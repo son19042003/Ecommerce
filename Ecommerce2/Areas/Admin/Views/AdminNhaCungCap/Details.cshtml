@@ -1,0 +1,66 @@
+﻿@model Ecommerce2.Models.NhaCungCap
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a class="breadcrumb-item" asp-area="Admin" asp-controller="AdminNhaCungCap" asp-action="Index">Danh sách các nhà cung cấp</a>
+            <span class="breadcrumb-item active">Chi tiết nhà cung cấp</span>
+        </nav>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Thông tin nhà cung cấp: @Model.TenCongTy</h4>
+        <div class="table-responsive">
+            <table class="product-info-table m-t-20">
+                <tbody>
+                    <tr>
+                        <td>Mã nhà cung cấp:</td>
+                        <td class="text-dark font-weight-semibold">@Model.MaNcc</td>
+                    </tr>
+                    <tr>
+                        <td>Tên nhà cung cấp:</td>
+                        <td>@Model.TenCongTy</td>
+                    </tr>
+                    <tr>
+                        <td>Người liên lạc:</td>
+                        <td>@Model.NguoiLienLac</td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td>@Model.Email</td>
+                    </tr>
+                    <tr>
+                        <td>Điện thoại:</td>
+                        <td>@Model.DienThoai</td>
+                    </tr>
+                    <tr>
+                        <td>Quốc gia:</td>
+                        <td>@Model.DiaChi</td>
+                    </tr>
+                    <tr>
+                        <td>Mô tả:</td>
+                        <td>@Model.MoTa</td>
+                    </tr>
+                    <tr>
+                        <td>Logo:</td>
+                        <td>
+                            <img width="100" height="100" src="~/Images/NhaCungCap/@Model.Logo" alt="@Model.TenCongTy" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-success btn-tone m-r-5" asp-action="Edit" asp-route-id="@Model?.MaNcc">Sửa</a> |
+    <a class="btn btn-success btn-tone m-r-5" asp-action="Index">Quay lại danh sách</a>
+</div>

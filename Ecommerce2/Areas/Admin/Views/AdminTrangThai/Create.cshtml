@@ -1,0 +1,45 @@
+﻿@model Ecommerce2.Models.TrangThai
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a class="breadcrumb-item" asp-area="Admin" asp-controller="AdminTrangThai" asp-action="Index">Quản lý danh sách trạng thái</a>
+            <span class="breadcrumb-item active">Thêm mới trạng thái</span>
+        </nav>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MaTrangThai" class="control-label">Mã trạng thái</label>
+                <input asp-for="MaTrangThai" class="form-control" />
+                <span asp-validation-for="MaTrangThai" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenTrangThai" class="control-label">Tên trạng thái</label>
+                <input asp-for="TenTrangThai" class="form-control" />
+                <span asp-validation-for="TenTrangThai" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MoTa" class="control-label">Mô tả</label>
+                <input asp-for="MoTa" class="form-control" />
+                <span asp-validation-for="MoTa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-success btn-tone m-r-5" asp-action="Index">Quay lại danh sách</a>
+</div>
